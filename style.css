@@ -6,6 +6,7 @@
 }
 
 body {
+    /* Updated to use Proxima Nova as the primary font */
     font-family: 'Proxima Nova', sans-serif;
     line-height: 1.6;
     color: #333;
