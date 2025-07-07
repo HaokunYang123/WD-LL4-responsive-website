@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>charity: water</title>
     <link rel="stylesheet" href="style.css">
-    
-    </head>
+</head>
 <body>
 
     <header class="site-header">
         <img class="logo" src="charitylogo1.png" alt="charity: water">
         <nav class="main-nav">
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#" class="btn-language">Language</a></li>
+                <li><a href="#" onclick="openModal('about-modal')">About Us</a></li>
+                <li><a href="#" class="btn-language" onclick="setLanguageSpanish()">Language</a></li>
             </ul>
         </nav>
     </header>
@@ -22,20 +21,68 @@
     <main>
         <section class="hero">
             <div class="hero-text-container">
-                <h1>A Direct Line From Your Action to Their Well.</h1>
-                <p>
+                <h1 id="hero-headline">A Direct Line From Your Action to Their Well.</h1>
+                <p id="hero-paragraph">
                     We've built a new model for giving. 100% of your donation
                     funds the project, and our platform gives you a front-row
                     seat to the impact.
                 </p>
-                <a href="#" class="btn-cta">Start Your Impact</a>
+                <a href="#" class="btn-cta" onclick="openModal('donation-modal')">Start Your Impact</a>
             </div>
-
             <div class="hero-image-container">
                 <img src="charitywater.jpg" alt="Woman and child collecting clean water from a well.">
             </div>
         </section>
     </main>
+
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('about-modal')">&times;</span>
+            <h2>About charity: water</h2>
+            <p>charity: water is a non-profit organization bringing clean and safe drinking water to people in developing countries. We use 100% of public donations to fund clean water projects.</p>
+        </div>
+    </div>
+
+    <div id="donation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('donation-modal')">&times;</span>
+            <h2>Start Your Impact</h2>
+            <p>Join the mission to bring clean water to everyone on the planet.</p>
+            <form class="donation-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email">
+                <label for="donation">Donation Amount ($)</label>
+                <input type="number" id="donation" name="donation" placeholder="50">
+                <button type="submit" class="btn-cta">Donate Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- Language Switch Functionality (Unchanged) ---
+        function setLanguageSpanish() {
+            const headline = document.getElementById('hero-headline');
+            const paragraph = document.getElementById('hero-paragraph');
+            headline.textContent = 'Una Línea Directa de su Acción a su Pozo.';
+            paragraph.textContent = 'Hemos construido un nuevo modelo para dar. El 100% de su donación financia el proyecto y nuestra plataforma le da un asiento de primera fila para ver el impacto.';
+        }
+
+        // --- Simplified Modal Functionality ---
+
+        // A single function to open ANY modal by its ID
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        // A single function to close ANY modal by its ID
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>

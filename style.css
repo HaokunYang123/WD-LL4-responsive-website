@@ -1,15 +1,15 @@
+/* --- Global Styles & Font Imports --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Proxima Nova', sans-serif;
     line-height: 1.6;
     color: #333;
 }
-
+/* --- Header & Navigation --- */
 .site-header {
     background-color: #53799A;
     padding: 1rem 5%;
@@ -17,76 +17,70 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
-    height: 40px; 
-    width: auto; 
+    height: 40px;
+    width: auto;
 }
-
 .main-nav ul {
     list-style: none;
     display: flex;
     align-items: center;
     gap: 2rem;
 }
-
 .main-nav a {
     text-decoration: none;
     color: #fff;
     font-weight: 600;
 }
-
 .btn-language {
     background-color: #FCD232;
-    color: #333;
+    color: #000; /* Font color is black */
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
 .btn-language:hover {
     background-color: #eabf26;
 }
-
+/* --- Hero Section --- */
 .hero {
     display: flex;
     min-height: calc(100vh - 74px);
     background-color: #f5f5f5;
 }
-
 .hero-text-container {
-    flex-basis: 50%;
+    flex-basis: 65%; /* Layout is 65% text */
     padding: 4rem 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
-
+.hero-image-container {
+    flex-basis: 35%; /* Layout is 35% image */
+}
 .hero-text-container::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 150%; 
-    height: 150px; 
+    width: 150%;
+    height: 150px;
     background-color: #53799A;
-    transform: skewY(-5deg) translateY(50%); 
+    transform: skewY(-5deg) translateY(50%);
     z-index: 0;
 }
-
 h1 {
     font-family: 'Proxima Nova', sans-serif;
     font-size: 3.5rem;
-    font-weight: 700; 
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     max-width: 500px;
     position: relative;
-    z-index: 1; 
+    z-index: 1;
 }
-
 .hero-text-container p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
@@ -94,9 +88,8 @@ h1 {
     position: relative;
     z-index: 1;
 }
-
 .btn-cta {
-    background-color: #FCD232; 
+    background-color: #FCD232;
     color: #333;
     text-decoration: none;
     font-weight: 600;
@@ -107,58 +100,79 @@ h1 {
     transition: transform 0.3s ease;
     position: relative;
     z-index: 1;
+    border: none;
+    cursor: pointer;
 }
-
 .btn-cta:hover {
     transform: translateY(-3px);
 }
-
-.hero-image-container {
-    flex-basis: 50%; 
-}
-
 .hero-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     display: block;
 }
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-btn:hover {
+    color: #000;
+}
+.donation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+.donation-form input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.donation-form .btn-cta {
+    align-self: center;
+    margin-top: 1rem;
+}
 
+/* --- Responsive Styles --- */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-    }
-
-    .hero-text-container {
-        flex-basis: auto;
-        min-height: 60vh;
-        text-align: center;
-    }
-
-    .hero-text-container::after {
-        display: none;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        max-width: 100%;
-    }
-
-    .hero-text-container p {
-        max-width: 100%;
-    }
-
-    .btn-cta {
-        align-self: center;
-    }
-
-    .hero-image-container {
-        flex-basis: auto;
-        height: 40vh;
-    }
-    
-    .site-header{
-        flex-direction: column;
-        gap: 1rem;
-    }
+    .hero { flex-direction: column; }
+    .hero-text-container, .hero-image-container { flex-basis: auto; }
+    .hero-text-container { min-height: 60vh; text-align: center; }
+    .hero-text-container::after { display: none; }
+    h1 { font-size: 2.5rem; max-width: 100%; }
+    .hero-text-container p { max-width: 100%; }
+    .btn-cta { align-self: center; }
+    .hero-image-container { height: 40vh; }
+    .site-header { flex-direction: column; gap: 1rem; }
+    .modal-content { width: 90%; margin: 30% auto; }
 }
