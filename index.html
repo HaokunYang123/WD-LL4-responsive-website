@@ -21,7 +21,7 @@
     <main>
         <section class="hero">
             <div class="hero-text-container">
-                <h1 id="hero-headline">A Direct Line From Your Action to Their Well.</h1>
+                <h1 id="hero-headline">A Direct Line From Your Action <br> to Their Well.</h1>
                 <p id="hero-paragraph">
                     We've built a new model for giving. 100% of your donation
                     funds the project, and our platform gives you a front-row
@@ -61,23 +61,18 @@
     </div>
 
     <script>
-        // --- Language Switch Functionality (Unchanged) ---
         function setLanguageSpanish() {
             const headline = document.getElementById('hero-headline');
             const paragraph = document.getElementById('hero-paragraph');
-            headline.textContent = 'Una Línea Directa de su Acción a su Pozo.';
+            headline.innerHTML = 'Una Línea Directa de su Acción <br> a su Pozo.';
             paragraph.textContent = 'Hemos construido un nuevo modelo para dar. El 100% de su donación financia el proyecto y nuestra plataforma le da un asiento de primera fila para ver el impacto.';
         }
 
-        // --- Simplified Modal Functionality ---
-
-        // A single function to open ANY modal by its ID
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.style.display = 'block';
         }
 
-        // A single function to close ANY modal by its ID
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.style.display = 'none';
